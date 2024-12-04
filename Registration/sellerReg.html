@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZentihZone - eCommerce Website</title>
+
+    <!--
+        - favicon
+      -->
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo/ZentihZone.png"
+      type="image/x-icon"
+    />
+
+    <!--
+        - custom css link
+      -->
+    <!-- <link rel="stylesheet" href="./assets/css/style-prefix.css" /> -->
+
+    <!--
+        - google font link
+      -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.875em;
+      margin-top: 0.5em;
+      display: none;
+    }
+  </style>
+  <body>
+    <div
+    style="background-image: url('./RegBG.jpg');"
+    >
+      <!-- This Div for form of the registration -->
+      <div
+        class="mt-5 mb-5 max-w-4xl mx-auto font-[sans-serif] p-6 bg-gray-100  rounded-lg"
+      >
+        <form id="signupForm">
+          <div class="grid sm:grid-cols-2 gap-8">
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2">First Name</label>
+              <div class="relative flex items-center">
+                <input
+                  id="fname"
+                  name="fname"
+                  type="text"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                  placeholder="Enter first name"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#bbb"
+                  stroke="#bbb"
+                  class="w-[18px] h-[18px] absolute right-2"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
+                  <path
+                    d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
+                    data-original="#000000"
+                  ></path>
+                </svg>
+              </div>
+              <div id="fname-error" class="error-message">
+                First name should not contain numbers.
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2">Last Name</label>
+              <div class="relative flex items-center">
+                <input
+                  id="lname"
+                  name="lname"
+                  type="text"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                  placeholder="Enter last name"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#bbb"
+                  stroke="#bbb"
+                  class="w-[18px] h-[18px] absolute right-2"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
+                  <path
+                    d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
+                    data-original="#000000"
+                  ></path>
+                </svg>
+              </div>
+              <div id="lname-error" class="error-message">
+                Last name should not contain numbers.
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2">Email Id</label>
+              <div class="relative flex items-center">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                  placeholder="Enter email"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#bbb"
+                  stroke="#bbb"
+                  class="w-[18px] h-[18px] absolute right-2"
+                  viewBox="0 0 682.667 682.667"
+                >
+                  <defs>
+                    <clipPath id="a" clipPathUnits="userSpaceOnUse">
+                      <path d="M0 512h512V0H0Z" data-original="#000000"></path>
+                    </clipPath>
+                  </defs>
+                  <g
+                    clip-path="url(#a)"
+                    transform="matrix(1.33 0 0 -1.33 0 682.667)"
+                  >
+                    <path
+                      fill="none"
+                      stroke-miterlimit="10"
+                      stroke-width="40"
+                      d="M452 444H60c-22.091 0-40-17.909-40-40v-39.446l212.127-157.782c14.17-10.54 33.576-10.54 47.746 0L492 364.554V404c0 22.091-17.909 40-40 40Z"
+                      data-original="#000000"
+                    ></path>
+                    <path
+                      d="M472 274.9V107.999c0-11.027-8.972-20-20-20H60c-11.028 0-20 8.973-20 20V274.9L0 304.652V107.999c0-33.084 26.916-60 60-60h392c33.084 0 60 26.916 60 60v196.653Z"
+                      data-original="#000000"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div id="email-error" class="error-message">
+                Please enter a valid email address.
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2">Mobile No.</label>
+              <div class="relative flex items-center">
+                <input
+                  id="number"
+                  name="number"
+                  type="text"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                  placeholder="Enter mobile number"
+                />
+                <button
+                  type="button"
+                  class="absolute right-2 top-2/4 transform -translate-y-2/4 bg-blue-500 text-white px-3 py-1 rounded-md text-xs"
+                >
+                  Send OTP
+                </button>
+              </div>
+              <div id="number-error" class="error-message">
+                Mobile number must be 11 digits.
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2">OTP</label>
+              <div class="relative flex items-center">
+                <input
+                  id="otp"
+                  name="otp"
+                  type="text"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                  placeholder="Enter OTP"
+                />
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2">Password</label>
+              <div class="relative flex items-center">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                  placeholder="Enter password"
+                />
+                <svg
+                  onclick="togglePasswordVisibility('password', this)"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#bbb"
+                  stroke="#bbb"
+                  class="w-[18px] h-[18px] absolute right-2 cursor-pointer"
+                  viewBox="0 0 128 128"
+                >
+                  <path
+                    d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z"
+                    data-original="#000000"
+                  ></path>
+                </svg>
+              </div>
+              <div id="password-error" class="error-message">
+                Password must be at least 6 characters long.
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2"
+                >Confirm Password</label
+              >
+              <div class="relative flex items-center">
+                <input
+                  id="cpassword"
+                  name="cpassword"
+                  type="password"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                  placeholder="Enter confirm password"
+                />
+                <svg
+                  onclick="togglePasswordVisibility('cpassword', this)"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#bbb"
+                  stroke="#bbb"
+                  class="w-[18px] h-[18px] absolute right-2 cursor-pointer"
+                  viewBox="0 0 128 128"
+                >
+                  <path
+                    d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z"
+                    data-original="#000000"
+                  ></path>
+                </svg>
+              </div>
+              <div id="cpassword-error" class="error-message">
+                Passwords do not match.
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2">Gender</label>
+              <div class="relative flex items-center">
+                <select
+                  id="gender"
+                  name="gender"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                >
+                  <option value="" disabled selected>Select gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div id="gender-error" class="error-message">
+                Please select your gender.
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2">NID Number</label>
+              <div class="relative flex items-center">
+                <input
+                  id="nid"
+                  name="nid"
+                  type="text"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                  placeholder="Enter NID number"
+                />
+              </div>
+              <div id="nid-error" class="error-message">
+                NID number must be exactly 10, 13, or 17 digits long and contain
+                only numbers.
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2"
+                >Date of Birth</label
+              >
+              <div class="relative flex items-center">
+                <input
+                  id="dob"
+                  name="dob"
+                  type="date"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                  style="color: black"
+                />
+              </div>
+              <div id="dob-error" class="error-message">
+                Please enter a valid date of birth.
+              </div>
+            </div>
+  
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2">Postal Code</label>
+              <div class="relative flex items-center">
+                <input
+                  id="postal"
+                  name="postal"
+                  type="text"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                  placeholder="Enter postal code"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#bbb"
+                  stroke="#bbb"
+                  class="w-[18px] h-[18px] absolute right-2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 17h-2v-2h2zm0-4h-2V7h2z"
+                  />
+                </svg>
+              </div>
+              <div id="postal-error" class="error-message">
+                Postal code should be numeric.
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2"
+                >Upload Your Picture</label
+              >
+              <div class="relative flex items-center">
+                <input
+                  id="own-picture"
+                  name="own_picture"
+                  type="file"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                />
+              </div>
+              <div id="own-picture-error" class="error-message">
+                Please upload your picture.
+              </div>
+            </div>
+            <div class="mt-8">
+              <label class="text-gray-800 text-xs block mb-2"
+                >Upload NID Picture</label
+              >
+              <div class="relative flex items-center">
+                <input
+                  id="nid-picture"
+                  name="nid_picture"
+                  type="file"
+                  required
+                  class="w-full bg-transparent text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 px-2 py-3 outline-none"
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#bbb"
+                  stroke="#bbb"
+                  class="w-[18px] h-[18px] absolute right-2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 17h-2v-2h2zm0-4h-2V7h2z"
+                  />
+                </svg>
+              </div>
+              <div id="nid-picture-error" class="error-message">
+                Please upload your NID picture.
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center mt-12">
+            <button
+              type="submit"
+              name="submit"
+              class="py-3.5 px-7 text-sm font-semibold tracking-wider rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+            >
+              Sign up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Customer Registration Javascript code  -->
+    <script src="ValidateRegistration.js"></script>
+  </body>
+</html>

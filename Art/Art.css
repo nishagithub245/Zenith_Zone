@@ -1,0 +1,48 @@
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Fullscreen image container styles */
+.fullscreen-img-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+
+/* Fullscreen image styles */
+.fullscreen-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+/* Timer styles */
+#countdown {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e53e3e;
+  /* Red color */
+  background-color: #f7fafc;
+  /* Light background color */
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+#countdown-container {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.25rem;
+}

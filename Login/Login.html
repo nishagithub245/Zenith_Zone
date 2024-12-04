@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Particle Background</title>
+    
+    <!--
+    - favicon
+  -->
+  <link
+  rel="shortcut icon"
+  href="../assets/images/logo/ZentihZone.png"
+  type="image/x-icon"
+/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Login css link -->
+     <link rel="stylesheet" href="./LoginStyle.css">
+  </head>
+  <body>
+    
+    <div id="particles-js"></div>
+    
+    <div class="login-box">
+      <div class="flex justify-center mb-1">
+        <img
+          src="../assets/images/logo/ZentihZone.png"
+          alt="ZenithZone logo"
+          class="w-20"
+        />
+      </div>
+      <h2 class="text-white text-2xl text-center">
+        Welcome to ZenithZone
+      </h2>
+      <form>
+        <div class="user-box">
+          <input type="text" name="" required="" />
+          <label>Emaill/Mobile no.</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="" required="" />
+          <label>Password</label>
+        </div>
+        <div class="flex justify-center mb-3">
+          <button type="submit" class="btn">Login</button>
+        </div>
+
+        <div class="flex justify-between items-center mb-4">
+          <a href="#" class="text-teal-400 hover:underline"
+            >Forgot your password?</a
+          >
+        </div>
+        <p class="text-white text-center">
+          Don't have an account?
+          <a href="#" class="text-teal-400 hover:underline text-blue-400">Sign up now</a>
+        </p>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="./LoginScript.js"></script>
+
+  </body>
+</html>

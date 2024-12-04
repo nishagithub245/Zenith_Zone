@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Number Verification</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="w-full max-w-xs">
+        <form id="verificationForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="number">
+                    Phone Number (+880)
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="number" type="text" placeholder="+8801XXXXXXXXX">
+                <button type="button" id="sendOtp" class="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Send OTP</button>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="otp">
+                    OTP
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="otp" type="text" placeholder="Enter OTP">
+                <button type="button" id="verifyOtp" class="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Verify OTP</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js"></script>
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+        import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCAITtBc2AFXJHvoshc77XKL0xkpP-3ojM",
+            authDomain: "rzenithzone.firebaseapp.com",
+            projectId: "rzenithzone",
+            storageBucket: "rzenithzone.appspot.com",
+            messagingSenderId: "490959314559",
+            appId: "1:490959314559:web:3cac029bd4186800f8e94a",
+            measurementId: "G-V4CKHQ6FDS"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        window.onload = function() {
+            const recaptchaVerifier = new RecaptchaVerifier('sendOtp', {
+                'size': 'invisible',
+                'callback': (response) => {
+                    // reCAPTCHA solved, allow send OTP
+                }
+            }, auth);
+            recaptchaVerifier.render();
+
+            document.getElementById('sendOtp').addEventListener('click', function() {
+                const phoneNumber = document.getElementById('number').value;
+                signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier)
+                    .then((confirmationResult) => {
+                        window.confirmationResult = confirmationResult;
+                        alert('OTP has been sent');
+                    }).catch((error) => {
+                        console.error('Error during sending OTP', error);
+                        alert('Failed to send OTP: ' + error.message);
+                    });
+            });
+
+            document.getElementById('verifyOtp').addEventListener('click', function() {
+                const code = document.getElementById('otp').value;
+                if (window.confirmationResult) {
+                    window.confirmationResult.confirm(code)
+                        .then((result) => {
+                            alert('OTP verified successfully!');
+                        }).catch((error) => {
+                            console.error('Failed to verify OTP', error);
+                            alert('Failed to verify OTP: ' + error.message);
+                        });
+                } else {
+                    alert("Please send OTP first.");
+                }
+            });
+        };
+    </script>
+</body>
+</html>

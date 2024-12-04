@@ -1,0 +1,11 @@
+{
+  "liveServer.settings.port": 5501,
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
+  "editor.stickyTabStops": true,
+  "editor.tabCompletion": "on",
+  "workbench.editor.highlightModifiedTabs": true,
+  "editor.tabFocusMode": true
+}

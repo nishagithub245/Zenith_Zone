@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone OTP Verification</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css">
+</head>
+<body class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="w-full max-w-md p-8 bg-white shadow-md rounded">
+        <h1 class="text-center text-xl font-bold mb-6">Phone Verification</h1>
+        <div id="recaptcha-container"></div>
+        <form action="#" method="POST" id="verificationForm" class="space-y-6">
+            <div>
+                <label for="number" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                <input type="text" id="number" placeholder="Enter Phone Number" name="phone"
+                       required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                <button type="button" onclick="phoneAuth()"
+                        class="mt-4 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    Send OTP
+                </button>
+            </div>
+            <div>
+                <input type="text" id="verificationCode" placeholder="Enter Verification Code" required
+                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                <button type="button" onclick="codeVerify()"
+                        class="mt-4 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Verify Code
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyCAITtBc2AFXJHvoshc77XKL0xkpP-3ojM",
+            authDomain: "rzenithzone.firebaseapp.com",
+            projectId: "rzenithzone",
+            storageBucket: "rzenithzone.appspot.com",
+            messagingSenderId: "490959314559",
+            appId: "1:490959314559:web:3cac029bd4186800f8e94a",
+            measurementId: "G-V4CKHQ6FDS"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        function renderRecaptcha() {
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+                size: 'invisible',
+                callback: (response) => {
+                    console.log("reCAPTCHA solved, allow signInWithPhoneNumber");
+                },
+                'expired-callback': () => {
+                    console.error("reCAPTCHA expired, try again");
+                }
+            });
+            recaptchaVerifier.render();
+        }
+
+        function phoneAuth() {
+            var number = document.getElementById("number").value;
+            var appVerifier = window.recaptchaVerifier;
+            firebase.auth().signInWithPhoneNumber(number, appVerifier)
+                .then(function (confirmationResult) {
+                    window.confirmationResult = confirmationResult;
+                    console.log("OTP has been sent");
+                }).catch(function (error) {
+                    console.error("SMS not sent", error);
+                });
+        }
+
+        function codeVerify() {
+            var code = document.getElementById("verificationCode").value;
+            window.confirmationResult.confirm(code)
+                .then(function (result) {
+                    console.log("Successfully verified", result.user);
+                }).catch(function (error) {
+                    console.error("Verification failed", error);
+                });
+        }
+
+        window.onload = function () {
+            renderRecaptcha();
+        };
+    </script>
+</body>
+</html>

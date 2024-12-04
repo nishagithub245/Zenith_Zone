@@ -1,0 +1,52 @@
+.autobox {
+  max-height: 280px;
+  overflow-y: auto;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.autobox li {
+  list-style-type: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  font-family: "Poppins", sans-serif;
+}
+
+.autobox li:hover {
+  background-color: #efefef;
+}
+
+/* Ensure the search suggestions appear above the nav bar */
+#searchSuggestions {
+  position: absolute; /* Ensure positioning is absolute within its container */
+  z-index: 1050; /* Higher than the nav bar */
+  background-color: white; /* Solid background for dropdown visibility */
+  border: 1px solid #ddd; /* Optional for better visuals */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  max-height: 300px; /* Optional: Limit height for long lists */
+  overflow-y: auto; /* Add scroll for long content */
+  width: 100%; /* Match input width */
+}
+
+/* Style for search suggestion items */
+#searchSuggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#searchSuggestions li:hover {
+  background-color: #f5f5f5; /* Highlight on hover */
+}
+
+/* Ensure the second nav bar has a lower z-index */
+nav {
+  z-index: 100; /* Lower than the autocomplete dropdown */
+  position: relative; /* Ensure it doesn't conflict with absolute dropdowns */
+}
