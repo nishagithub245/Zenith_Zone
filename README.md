@@ -33,6 +33,9 @@ Prerequisites
 •	PHP installed on your system.
 •	A MySQL database instance.
 •	A local server environment (e.g., XAMPP or WAMP).
+
+
+
 Steps
 1.	Clone the repository:
 bash
@@ -70,4 +73,4 @@ Contributors
 •	Rajib Kumar Dhar (Email: rajib2516@student.nstu.edu.bd)
 •	Nafisa Binte Jashim (Email: nafisa2516@student.nstu.edu.bd)
 •	Nadia Jahan (Email: nadia2516@student.nstu.edu.bd)
-•	Sidratul Muntaha (Email: nisha2516@student.nstu.edu.bd)
+•	Sidratul Muntaha Nisha (Email: nisha2516@student.nstu.edu.bd)
